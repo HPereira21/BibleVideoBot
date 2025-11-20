@@ -1,186 +1,176 @@
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
 [![Português](https://img.shields.io/badge/lingua-Português-green.svg)](README_PT.md)
-# BibleVideoBot (AI-Powered Bible Verse Video Generator)
+# BibleVideoBot (Gerador Automático de Vídeos Devocionais com IA)
 
-Generate fully automated Bible-based devotional videos using AI. Just type a verse like **"John 3:16"** or **"Salmos 23:1"**, and the bot will:
+Gere vídeos devocionais automaticamente a partir de um versículo bíblico. Basta escrever algo como **"João 3:16"** ou **"Salmos 23:1"**, e o bot irá:
 
-1. **Fetch the verse** automatically (Portuguese or English)
-2. **Generate a calming devotional script** using the OpenAI API
-3. **Create a full video** with voice-over, background video, and on-screen text
-4. (Optional) **Upload it to YouTube** automatically
+1. **Buscar o versículo** automaticamente (Português ou Inglês)
+2. **Gerar um roteiro devocional** usando a API da OpenAI
+3. **Criar o vídeo completo** com narração, vídeo de fundo e texto na tela
+4. (Opcional) **Enviar para o YouTube** automaticamente
 
-This project is ideal for WhatsApp/Instagram/YouTube prayer channels.
+Ideal para canais de oração no WhatsApp, Instagram ou YouTube.
 
 ---
 
-## 📁 Project Structure
+## 📁 Estrutura do Projeto
 
 ```
 BibleVideoBot/
 │
-├── assets/               # Background videos, music, images
-├── output/               # Final exported videos
-├── temp/                 # Temporary files
+├── assets/               # Vídeos de fundo, música, imagens
+├── output/               # Vídeos finais
+├── temp/                 # Arquivos temporários
 │
-├── main.py               # Entry point
-├── video_engine.py       # Handles video generation
-├── uploader.py           # Handles YouTube upload
-├── script_generator.py   # NEW — Fetches verse & generates devotional script
-└── requirements.txt      # Dependencies
+├── main.py               # Arquivo principal
+├── video_engine.py       # Responsável pela criação do vídeo
+├── uploader.py           # Responsável pelo upload no YouTube
+├── script_generator.py   # NOVO — Busca o versículo e gera o roteiro
+└── requirements.txt      # Dependências
 ```
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Instalação
 
-### 1. Clone the Repository
+### 1. Instale o Python 3.10+ (Instruções para Windows mais abaixo)
 
-```
-git clone https://github.com/yourusername/BibleVideoBot.git
-cd BibleVideoBot
-```
+Baixe aqui: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-### 2. Install Python 3.10+ (Windows Instructions Below!)
-
-Download here: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-
-### 3. Install Dependencies
+### 2. Instale as Dependências
 
 ```
 pip install -r requirements.txt
 ```
 
-### 4. Add Your OpenAI API Key
+### 3. Adicione a sua OpenAI API Key
 
-Edit `script_generator.py` and replace:
+Edite o arquivo `script_generator.py` e substitua:
 
 ```
 OPENAI_KEY = "YOUR_OPENAI_API_KEY_HERE"
 ```
 
-with your real key from:
+Pela sua chave obtida em:
 **[https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)**
 
 ---
 
-## 🪶 Windows Setup Instructions (COMPLETE)
+## 🪟 Instruções Completas para Windows
 
-Follow these steps carefully.
+### ✅ Passo 1 — Instalar Python
 
-### ✅ Step 1 — Install Python
+1. Baixe no site oficial
+2. **IMPORTANTE:** marque a opção **“Add Python to PATH”**
+3. Instale normalmente
 
-1. Download from [https://python.org/downloads](https://python.org/downloads)
-2. **IMPORTANT:** Check the box **“Add Python to PATH”**
-3. Install
+### ✅ Passo 2 — Instalar FFmpeg (OBRIGATÓRIO)
 
-### ✅ Step 2 — Install FFmpeg (REQUIRED)
+Necessário para gerar o vídeo.
 
-Video generation needs FFmpeg.
-
-1. Download FFmpeg (Windows build):
+1. Baixe o FFmpeg:
    [https://www.gyan.dev/ffmpeg/builds/](https://www.gyan.dev/ffmpeg/builds/)
 
-2. Extract the `.zip` (e.g., to `C:\ffmpeg`)
+2. Extraia o zip (ex.: `C:\ffmpeg`)
 
-3. Add to PATH:
+3. Adicione ao PATH:
 
-   * Press **Win + R**, type: `sysdm.cpl`
-   * Go to **Advanced → Environment Variables**
-   * In *System Variables*, select **Path** → Edit
-   * Add:
+   * Win + R → `sysdm.cpl`
+   * Aba **Avançado → Variáveis de Ambiente**
+   * Em *Variáveis do Sistema*, selecione **Path** → Editar
+   * Adicione:
 
      ```
      C:\ffmpeg\bin
      ```
 
-4. Test:
+4. Teste:
 
 ```
 ffmpeg -version
 ```
 
-If it prints version info → OK.
+Se aparecer a versão → OK.
 
-### ✅ Step 3 — Install Requirements
+### ✅ Passo 3 — Instalar Dependências
 
 ```
 pip install -r requirements.txt
 ```
 
-### ✅ Step 4 — Add Your OpenAI Key
+### ✅ Passo 4 — Adicionar a OpenAI Key
 
-Edit `script_generator.py` as explained above.
+Edite o `script_generator.py`.
 
-### Optional: Install Microsoft Edge TTS (Voices)
+### Observação: Vozes TTS da Microsoft
 
-Windows has built-in voices automatically. No extra steps usually needed.
+No Windows elas já vêm instaladas.
 
 ---
 
-## ▶️ Running the Bot
+## ▶️ Executando o Bot
 
-Run:
+Execute:
 
 ```
 python main.py
 ```
 
-1. Choose the language/voice
-2. Enter a Bible verse reference:
+1. Escolha o idioma/voz
+2. Digite um versículo:
 
    * `Salmos 91:1`
-   * `John 3:16`
-3. The bot will:
+   * `João 3:16`
+3. O bot irá:
 
-   * Fetch the verse
-   * Generate a calming devotional script using AI
-   * Synthesize voice-over
-   * Add background video
-   * Produce the final MP4
+   * Buscar o texto bíblico
+   * Gerar o roteiro devocional usando IA
+   * Criar a narração
+   * Gerar o vídeo final MP4
 
-Output will be saved in:
+O vídeo será salvo em:
 
 ```
 output/
 ```
 
-Then you may be asked:
+Depois será perguntado:
 
 ```
-Upload to YouTube? (y/n)
+Upload para o YouTube? (y/n)
 ```
 
-If yes, it will upload automatically.
+Se escolher sim, o envio será automático.
 
 ---
 
-## 💵 Costs
+## 💵 Custos
 
-* **Bible API** → Free
-* **OpenAI API** → Extremely cheap
+* **Bible API** → Grátis
+* **OpenAI** → Muito barato
 
-  * `gpt-4o-mini` costs around **$0.01 per 20–40 videos**
-* **Voices (Edge TTS)** → Free on Windows
-
----
-
-## ✨ Features
-
-* Multi-language (PT-BR & EN)
-* AI-written devotional scripts
-* Auto-generated video with text overlays
-* Auto-upload to YouTube
-* Clean & modular architecture
+  * `gpt-4o-mini` custa centavos
+* **Vozes (Edge TTS)** → Grátis no Windows
 
 ---
 
-## 📌 Notes
+## ✨ Funcionalidades
 
-* Ensure background videos and music exist in `assets/`
-* YouTube uploads require authentication (first run will guide you)
+* Multi-idioma (PT-BR e EN)
+* Roteiros devocionais baseados em IA
+* Vídeo totalmente automatizado
+* Upload automático para YouTube
+* Arquitetura modular e limpa
 
 ---
 
-## 📜 License
+## 📌 Notas
 
-MIT — free to use, modify, and distribute.
+* Coloque seus vídeos de fundo em `assets/`
+* O envio ao YouTube requer autenticação na primeira execução
+
+---
+
+## 📜 Licença
+
+MIT — livre para usar, modificar e distribuir.
