@@ -1,3 +1,5 @@
+[![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
+[![Português](https://img.shields.io/badge/lingua-Português-green.svg)](README_PT.md)
 # BibleVideoBot (AI-Powered Bible Verse Video Generator)
 
 Generate fully automated Bible-based devotional videos using AI. Just type a verse like **"John 3:16"** or **"Salmos 23:1"**, and the bot will:
